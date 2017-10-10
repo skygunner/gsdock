@@ -7,7 +7,7 @@ docker rm -f $SVC
 
 docker build -t $SVC . || exit 1
 
-docker run --rm -it 
+docker run --rm -it \
 	-p $PORT:$PORT \
 	-p 11000:11000 \
     --name $SVC \
