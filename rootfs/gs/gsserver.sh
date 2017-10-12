@@ -21,7 +21,7 @@ sed -i "/Receiver/c Receiver = Yes" /root/.goodsync/server/settings.tix
 /gs/gs-server /set-admin=${GS_USER}:${GS_PWD}
 
 #optionally set home folder
-sed -i "/HomeFolder/c HomeFolder = \"/data\"" /root/.goodsync/server/users.tix
+sed -i "/HomeFolder/c HomeFolder = \"file:///data\"" /root/.goodsync/server/users.tix
 
 #run server
 /gs/gs-server
