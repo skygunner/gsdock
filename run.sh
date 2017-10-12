@@ -5,6 +5,8 @@ PORT=33333
 
 docker rm -f $SVC
 
+docker rmi $SVC
+
 docker build -t $SVC . || exit 1
 
 docker run --rm -it \
