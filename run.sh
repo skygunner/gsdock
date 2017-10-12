@@ -13,9 +13,9 @@ docker run --rm -it \
 	-p $PORT:$PORT \
     --name $SVC \
     -e PORT=$PORT \
-    -e GOODSYNC_USER=$1 \
-    -e GOODSYNC_PWD=$2 \
-    -e GOODSYNC_ID=gsdockrun \
+    -e GS_USER=$1 \
+    -e GS_PWD=$2 \
+    -e GS_ID=gsdockrun \
     -v $(pwd)/data:/data \
     -v $(pwd)/server:/root/.goodsync/server \
     $SVC $3
