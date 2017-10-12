@@ -9,6 +9,13 @@ sed -i "/SSLCertificatePath/c SSLCertificatePath = \"/gs/gs-server.crt\"" /root/
 sed -i "/SSLPrivateKeyPath/c SSLPrivateKeyPath = \"/gs/gs-server.key\"" /root/.goodsync/server/settings.tix
 sed -i "/GlobalDiscovery/c GlobalDiscovery = Yes" /root/.goodsync/server/settings.tix
 sed -i "/WebUiServer/c WebUiServer = No" /root/.goodsync/server/settings.tix
+sed -i "/GstpManageServer/c GstpManageServer = No" /root/.goodsync/server/settings.tix
+sed -i "/GstpFileLocalOnly/c GstpFileLocalOnly = No" /root/.goodsync/server/settings.tix
+sed -i "/GstpMapExtPortViaUpnp/c GstpMapExtPortViaUpnp = Yes" /root/.goodsync/server/settings.tix
+sed -i "/GstpExtPort/c GstpExtPort = 33333" /root/.goodsync/server/settings.tix
+sed -i "/ComputerId/c ComputerId = \"${GOODSYNC_ID}\"" /root/.goodsync/server/settings.tix
+sed -i "/Receiver/c Receiver = Yes" /root/.goodsync/server/settings.tix
+
 
 #set root password
 /gs/gs-server /set-admin=${GOODSYNC_USER}:${GOODSYNC_PWD}
