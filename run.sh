@@ -17,3 +17,6 @@ docker run --rm -it \
     -e GOODSYNC_PWD=$2\
     -v $(pwd)/data:/data \
     $SVC $3
+
+#    -v $(pwd)/server:/root/.goodsync/server \
+    
