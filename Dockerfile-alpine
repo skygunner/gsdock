@@ -1,4 +1,4 @@
-# goodsync/Dockerfile
+# gsdock/Dockerfile-alpine
 
 FROM alpine:latest
 MAINTAINER And Grin <grin@grin.ly>
@@ -16,6 +16,5 @@ RUN wget -nv -O - https://www.goodsync.com/download/goodsync-release-x86_64.tar.
 COPY rootfs /
 
 EXPOSE 33333
-#EXPOSE 11000
 
 CMD ["/gs/gsserver.sh"]
