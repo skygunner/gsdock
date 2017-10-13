@@ -2,8 +2,10 @@
 
 #create default options
 /gs/gs-server -v
-sed -i "/LogLevel/c LogLevel = 4" /root/.goodsync/server/settings.tix
-sed -i "/ConsoleLevel/c ConsoleLevel = 4" /root/.goodsync/server/settings.tix
+
+#change options
+sed -i "/LogLevel/c LogLevel = 1" /root/.goodsync/server/settings.tix
+sed -i "/ConsoleLevel/c ConsoleLevel = 1" /root/.goodsync/server/settings.tix
 sed -i "/RetainLogDays/c RetainLogDays = 1" /root/.goodsync/server/settings.tix
 sed -i "/SSLCertificatePath/c SSLCertificatePath = \"/gs/gs-server.crt\"" /root/.goodsync/server/settings.tix
 sed -i "/SSLPrivateKeyPath/c SSLPrivateKeyPath = \"/gs/gs-server.key\"" /root/.goodsync/server/settings.tix
@@ -16,11 +18,10 @@ sed -i "/GstpExtPort/c GstpExtPort = 33333" /root/.goodsync/server/settings.tix
 sed -i "/ComputerId/c ComputerId = \"${GS_ID}\"" /root/.goodsync/server/settings.tix
 sed -i "/Receiver/c Receiver = Yes" /root/.goodsync/server/settings.tix
 
-
 #set root password
 /gs/gs-server /set-admin=${GS_USER}:${GS_PWD}
 
-#optionally set home folder
+#set home folder
 sed -i "/HomeFolder/c HomeFolder = \"file:///data\"" /root/.goodsync/server/users.tix
 
 #run server
