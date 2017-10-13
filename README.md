@@ -18,4 +18,4 @@
     ```
     where `<user>` and `<password>`  are from the step 1, optional `<deploy_name>` will identify the container in GoodSync Connect `gstp://<deploy_name>.<user>.goodsync`, and everything mounted in `/data` will be accessible through it.
 
-3. Open GoodSync or GsExlorer on Mac/Win/mobile, enter credentials for GoodSync Connect - all containers/servers running under this account should be visible and allw file transfer and sync. On Linux, GoodSync is good with some Wine.
+3. Open GoodSync or GsExlorer on Mac/Win/mobile, enter credentials for GoodSync Connect - all containers/servers running under this account should be visible and allow file transfer and sync. On Linux, GoodSync is good with some Wine.
