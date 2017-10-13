@@ -1,6 +1,6 @@
 # Dockerized GoodSync server
 
-GoodSync Connect provides server discovery through central registry, NAT/firewall traversal to provide file access and synchronization, making it very easy to populate/update/backup docker volumes after deployment.
+[GoodSync](https://www.goodsync.com) Connect provides server discovery through central registry, NAT/firewall traversal to provide file access and synchronization, making it very easy to populate/update/backup docker volumes after deployment.
 
 ## Usage: 
 
