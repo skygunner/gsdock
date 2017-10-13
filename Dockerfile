@@ -1,4 +1,5 @@
-# goodsync/Dockerfile
+# gsdock/Dockerfile
+
 FROM debian:jessie-slim
 MAINTAINER And Grin <grin@grin.ly>
 
@@ -12,5 +13,5 @@ COPY rootfs /
 
 EXPOSE 33333
 
-# Run GS
+VOLUME ["/data"]
 CMD ["/gs/gsserver.sh"]
