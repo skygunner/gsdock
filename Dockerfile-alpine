@@ -11,10 +11,12 @@ RUN apk --no-cache --update add ca-certificates wget tar && \
 
 # install goodsync server
 WORKDIR /gs
-RUN wget -nv -O - https://www.goodsync.com/download/goodsync-release-x86_64.tar.gz | tar xzf - --strip-components=1
+RUN mkdir /data &&\
+	wget -nv -O - https://www.goodsync.com/download/goodsync-release-x86_64.tar.gz | tar xzf - --strip-components=1
 
 COPY rootfs /
 
 EXPOSE 33333
 
+VOLUME ["/data"]
 CMD ["/gs/gsserver.sh"]
