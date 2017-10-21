@@ -1,7 +1,7 @@
 # gsdock/Dockerfile
 
 FROM debian:jessie-slim
-MAINTAINER And Grin <grin@grin.ly>
+LABEL maintainer "And Grin <a@grin.ly>"
 
 WORKDIR /gs
 ADD http://www.goodsync.com/download/goodsync-release-x86_64.tar.gz /gs/goodsync-release-x86_64.tar.gz

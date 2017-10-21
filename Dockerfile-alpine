@@ -1,7 +1,7 @@
 # gsdock/Dockerfile-alpine
 
 FROM alpine:latest
-MAINTAINER And Grin <grin@grin.ly>
+LABEL maintainer "And Grin <a@grin.ly>"
 
 # install glibc
 RUN apk --no-cache --update add ca-certificates wget tar && \
