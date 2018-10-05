@@ -11,6 +11,7 @@ sed -i "/SSLCertificatePath/c SSLCertificatePath = \"/gs/gs-server.crt\"" /root/
 sed -i "/SSLPrivateKeyPath/c SSLPrivateKeyPath = \"/gs/gs-server.key\"" /root/.goodsync/server/settings.tix
 sed -i "/GlobalDiscovery/c GlobalDiscovery = Yes" /root/.goodsync/server/settings.tix
 sed -i "/WebUiServer/c WebUiServer = Yes" /root/.goodsync/server/settings.tix
+sed -i "/WebUiLocalOnly/c WebUiLocalOnly = No" /root/.goodsync/server/settings.tix
 sed -i "/GstpManageServer/c GstpManageServer = No" /root/.goodsync/server/settings.tix
 sed -i "/GstpFileLocalOnly/c GstpFileLocalOnly = No" /root/.goodsync/server/settings.tix
 #sed -i "/GstpMapExtPortViaUpnp/c GstpMapExtPortViaUpnp = Yes" /root/.goodsync/server/settings.tix
