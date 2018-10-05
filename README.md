@@ -10,6 +10,8 @@
     ```
     docker run 
         -p 33333:33333 \
+        -p 11000:11000 \
+        -p 4444:4444 \
         -e GS_USER=<user> \
         -e GS_PWD=<password> \
         -e GS_ID=<deploy_name> \
