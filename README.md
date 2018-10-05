@@ -11,8 +11,10 @@ When run, the **latest available 64-bit** release will be downloaded from the Go
 2. Start the container with:
     ```
     docker run 
-        -p 33333:33333 \
-        -p 11000:11000 \
+        -p '33333:33333/tcp' \
+        -p '11000:11000/tcp' \
+        -p '33338:33338/udp' \
+        -p '33339:33339/udp' \
         -e GS_USER=<user> \
         -e GS_PWD=<password> \
         -e GS_ID=<deploy_name> \

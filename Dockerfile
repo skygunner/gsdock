@@ -1,5 +1,3 @@
-# gsdock/Dockerfile
-
 FROM debian:jessie-slim
 LABEL maintainer "shrmnk <shrmnk@users.noreply.github.com>"
 
@@ -17,11 +15,15 @@ RUN mkdir /data &&\
 # Copy over root filesystem for scripts
 COPY rootfs /
 
-# Main goodsync protocol port
-EXPOSE 33333
+# Main goodsync protocol port, for uploads/downloads
+EXPOSE 33333/tcp
 
 # WebUI Port
 EXPOSE 11000/tcp
+
+# Local Discovery of GS services are done using these 2 ports
+EXPOSE 33338/udp
+EXPOSE 33339/udp
 
 # Map /data to host-defined path for backup storage
 VOLUME /data
