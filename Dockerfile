@@ -14,5 +14,5 @@ COPY rootfs /
 
 EXPOSE 33333 11000 4444
 
-VOLUME ["/data"]
+VOLUME ["/data", "/root/.goodsync"]
 CMD ["/gs/gsserver.sh"]
