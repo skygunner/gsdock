@@ -1,7 +1,9 @@
 #!/bin/sh -e
 
 # Create settings.tix file if it does not exist
-filename=/root/.goodsync/server/settings.tix
+directory=/root/.goodsync/server
+mkdir -p $directory
+filename=$directory/settings.tix
 test -f $filename || touch $filename
 
 #create default options
