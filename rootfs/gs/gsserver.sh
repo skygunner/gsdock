@@ -1,5 +1,9 @@
 #!/bin/sh -e
 
+# Create settings.tix file if it does not exist
+filename=/root/.goodsync/server/settings.tix
+test -f $filename || touch $filename
+
 #create default options
 /gs/gs-server -v
 
