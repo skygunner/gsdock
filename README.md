@@ -1,4 +1,6 @@
-# Dockerized GoodSync server
+# Dockerized GoodSync Server
+
+### First Installation: Please restart container right after first boot to apply settings!
 
 [GoodSync](https://www.goodsync.com) Connect provides server discovery through central registry, NAT/firewall traversal to provide file access and synchronization, making it very easy to populate/update/backup docker volumes after deployment.
 
@@ -37,11 +39,13 @@ Unraid users - Changes to the docker-template XML was done to reflect some inter
     where `<user>` and `<password>`  are from the step 1, optional `<deploy_name>` will identify the container in GoodSync Connect `gstp://<deploy_name>.<user>.goodsync`, and everything mounted in `/data` will be accessible through it.
     Also note that /config will contain all the configuration files for you to edit if you wish
 
-3. Open GoodSync or GsExplorer on macOS/Windows/Mobile, enter credentials for GoodSync Connect - all containers/servers running under this account should be visible and allow file transfer and sync. Linux users should [view the various linux packages available on the GoodSync website](https://www.goodsync.com/for-linux). 
+3. **Restart container right after first boot to apply settings!**
 
-4. Your gsdock container will appear as `$GS_ID` or your container name (hostname). 
+4. Open GoodSync or GsExplorer on macOS/Windows/Mobile, enter credentials for GoodSync Connect - all containers/servers running under this account should be visible and allow file transfer and sync. Linux users should [view the various linux packages available on the GoodSync website](https://www.goodsync.com/for-linux). 
 
-5. If you wish to view the configuration UI, visit http://[IP]:11000/
+5. Your gsdock container will appear as `$GS_ID` or your container name (hostname). 
+
+6. If you wish to view the configuration UI, visit http://[IP]:11000/
 
 ---
 
