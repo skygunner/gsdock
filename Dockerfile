@@ -1,5 +1,8 @@
-FROM debian:jessie-slim
+FROM lsiobase/ubuntu:xenial
 LABEL maintainer "shrmnk <shrmnk@users.noreply.github.com>"
+
+# Exit container if we cannot assume UID/GID
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 # Change working directory to gs folder
 WORKDIR /gs
