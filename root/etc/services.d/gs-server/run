@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+echo "${ECHO_PREFIX} Running gs-server as ${GS_SERVER_USER}"
+echo "${ECHO_PREFIX} -> Configuration files at ${DIRECTORY_CONFIG}"
+echo "${ECHO_PREFIX} -> Data stored at ${DIRECTORY_DATA}"
+exec s6-setuidgid ${GS_SERVER_USER} gs-server /profile=${DIRECTORY_CONFIG}
