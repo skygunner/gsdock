@@ -15,6 +15,7 @@ Our base image is now [lsiobase/ubuntu:xenial](https://github.com/linuxserver/do
 In order to effect this change, some changes were needed:
 - **Container** path changed from `/root/.goodsync` to `/config`
 - Added `PUID` and `PGID` variables (99 and 100 respectively) to ensure files do not end up with root permissions
+- Default networking mode is now `host` instead of `bridge`, to effectively enable LAN Discovery.
 
 Unraid users - Changes to the docker-template XML was done to reflect some internal changes in how the docker image is created. If you are unsure on how to change your settings, I suggest deleting the docker app, then re-downloading from CA. Your data will remain safe as long as you point your folders (data folder and appdata folder) back to the same as before.
 
