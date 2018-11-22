@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+# Check folder permissions
+PUID=${PUID:-911}
+echo "${ECHO_PREFIX} Checking for ownership changes..."
+if [ ! "$(stat -c %u ${DIRECTORY_DATA})" = "$PUID" ]; then
+	echo "${ECHO_PREFIX} Change in ownership detected, please be patient while we chown existing files"
+	echo "${ECHO_PREFIX} -> This could take some time..."
+	chown -R ${GS_SERVER_USER}:${GS_SERVER_USER} \
+	${DIRECTORY_DATA}
+fi
+
+# Set permissions recursively on config folder
+chown -R ${GS_SERVER_USER}:${GS_SERVER_USER} ${DIRECTORY_CONFIG}
+
+# Set permissions (non-recursive) on data folder
+chown ${GS_SERVER_USER}:${GS_SERVER_USER} ${DIRECTORY_DATA}
