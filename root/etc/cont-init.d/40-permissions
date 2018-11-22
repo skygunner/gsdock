@@ -10,8 +10,8 @@ if [ ! "$(stat -c %u ${DIRECTORY_DATA})" = "$PUID" ]; then
 	${DIRECTORY_DATA}
 fi
 
-# Set permissions (non-recursive) on config root and folders
-chown ${GS_SERVER_USER}:${GS_SERVER_USER} \
-	${DIRECTORY_CONFIG}
-chown ${GS_SERVER_USER}:${GS_SERVER_USER} \
-	${DIRECTORY_DATA}
+# Set permissions recursively on config folder
+chown -R ${GS_SERVER_USER}:${GS_SERVER_USER} ${DIRECTORY_CONFIG}
+
+# Set permissions (non-recursive) on data folder
+chown ${GS_SERVER_USER}:${GS_SERVER_USER} ${DIRECTORY_DATA}
