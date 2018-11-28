@@ -1,0 +1,33 @@
+#!/usr/bin/with-contenv bash
+
+PATH_SETTINGS="${DIRECTORY_CONFIG}/settings.tix"
+
+# Copy SSL certs from tar
+[ -f ${PATH_SETTINGS} ] && echo "${ECHO_PREFIX} -> ${DIRECTORY_CONFIG}/gs-server.crt already exists, not copying" || cp /usr/bin/gs-server.crt "${DIRECTORY_CONFIG}/gs-server.crt"
+[ -f ${PATH_SETTINGS} ] && echo "${ECHO_PREFIX} -> ${DIRECTORY_CONFIG}/gs-server.key already exists, not copying" || cp /usr/bin/gs-server.key "${DIRECTORY_CONFIG}/gs-server.key"
+
+# Create default config
+echo "${ECHO_PREFIX} Checking if configuration file exists at ${PATH_SETTINGS}"
+[ -f ${PATH_SETTINGS} ] && echo "${ECHO_PREFIX} -> ${PATH_SETTINGS} already exists, skipping default creation" || exec s6-setuidgid ${GS_SERVER_USER} gs-server /profile=${DIRECTORY_CONFIG} /set-admin=${GS_USER}:${GS_PWD}:${GS_SERVER_USER}
+
+# Change the home folders of users
+sed -i "/HomeFolder/c HomeFolder = \"file:///data\"" "${DIRECTORY_CONFIG}/users.tix" && echo "${ECHO_PREFIX} Changed users home dir to \"file:///data\""
+
+echo "${ECHO_PREFIX} Configuring GoodSync Server settings at ${PATH_SETTINGS}"
+
+# Change options
+echo "${ECHO_PREFIX} -> Set LogLevel = 1" && sed -i "/LogLevel/c LogLevel = 1" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set SSLCertificatePath = \"${DIRECTORY_CONFIG}\"" && sed -i "/SSLCertificatePath/c SSLCertificatePath = \"${DIRECTORY_CONFIG}\"" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set ConsoleLevel = 3" && sed -i "/ConsoleLevel/c ConsoleLevel = 3" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set RetainLogDays = 1" && sed -i "/RetainLogDays/c RetainLogDays = 1" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set SSLCertificatePath = \"${DIRECTORY_CONFIG}/gs-server.crt\"" && sed -i "/SSLCertificatePath/c SSLCertificatePath = \"${DIRECTORY_CONFIG}/gs-server.crt\"" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set SSLPrivateKeyPath = \"${DIRECTORY_CONFIG}/gs-server.key\"" && sed -i "/SSLPrivateKeyPath/c SSLPrivateKeyPath = \"${DIRECTORY_CONFIG}/gs-server.key\"" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set GlobalDiscovery = Yes" && sed -i "/GlobalDiscovery/c GlobalDiscovery = Yes" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set WebUiLocalOnly = No" && sed -i "/WebUiLocalOnly/c WebUiLocalOnly = No" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set WebUiServer = Yes" && sed -i "/WebUiServer/c WebUiServer = Yes" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set WebUiPort = 11000" && sed -i "/WebUiPort/c WebUiPort = 11000" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set GstpManageServer = No" && sed -i "/GstpManageServer/c GstpManageServer = No" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set GstpFileLocalOnly = No" && sed -i "/GstpFileLocalOnly/c GstpFileLocalOnly = No" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set GstpMapExtPortViaUpnp = No" && sed -i "/GstpMapExtPortViaUpnp/c GstpMapExtPortViaUpnp = No" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set GstpExtPort = 33333" && sed -i "/GstpExtPort/c GstpExtPort = 33333" ${PATH_SETTINGS}
+echo "${ECHO_PREFIX} -> Set ComputerId = \"${GS_ID}\"" && sed -i "/ComputerId/c ComputerId = \"${GS_ID}\"" ${PATH_SETTINGS}
