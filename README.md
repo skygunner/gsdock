@@ -34,7 +34,7 @@ Unraid users - Changes to the docker-template XML was done to reflect some inter
         -e GS_PWD=<password> \
         -e GS_ID=<deploy_name> \
         -v $(pwd)/data:/data \
-        -v $(pwd)/config:/root/.goodsync \
+        -v $(pwd)/config:/config \
         shrmn/gsdock
     ```
     where `<user>` and `<password>`  are from the step 1, optional `<deploy_name>` will identify the container in GoodSync Connect `gstp://<deploy_name>.<user>.goodsync`, and everything mounted in `/data` will be accessible through it.
