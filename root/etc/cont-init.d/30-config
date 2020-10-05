@@ -22,7 +22,7 @@ echo "${ECHO_PREFIX} -> Set ConsoleLevel = 3" && sed -i "/ConsoleLevel/c Console
 echo "${ECHO_PREFIX} -> Set RetainLogDays = 1" && sed -i "/RetainLogDays/c RetainLogDays = 1" ${PATH_SETTINGS}
 echo "${ECHO_PREFIX} -> Set SSLCertificatePath = \"${DIRECTORY_CONFIG}/gs-server.crt\"" && sed -i "/SSLCertificatePath/c SSLCertificatePath = \"${DIRECTORY_CONFIG}/gs-server.crt\"" ${PATH_SETTINGS}
 echo "${ECHO_PREFIX} -> Set SSLPrivateKeyPath = \"${DIRECTORY_CONFIG}/gs-server.key\"" && sed -i "/SSLPrivateKeyPath/c SSLPrivateKeyPath = \"${DIRECTORY_CONFIG}/gs-server.key\"" ${PATH_SETTINGS}
-echo "${ECHO_PREFIX} -> Set GlobalDiscovery = Yes" && sed -i "/GlobalDiscovery/c GlobalDiscovery = Yes" ${PATH_SETTINGS}
+#echo "${ECHO_PREFIX} -> Set GlobalDiscovery = Yes" && sed -i "/GlobalDiscovery/c GlobalDiscovery = Yes" ${PATH_SETTINGS}
 echo "${ECHO_PREFIX} -> Set WebUiLocalOnly = No" && sed -i "/WebUiLocalOnly/c WebUiLocalOnly = No" ${PATH_SETTINGS}
 echo "${ECHO_PREFIX} -> Set WebUiServer = Yes" && sed -i "/WebUiServer/c WebUiServer = Yes" ${PATH_SETTINGS}
 echo "${ECHO_PREFIX} -> Set WebUiPort = 11000" && sed -i "/WebUiPort/c WebUiPort = 11000" ${PATH_SETTINGS}
